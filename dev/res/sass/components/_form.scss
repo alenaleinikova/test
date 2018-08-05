@@ -1,0 +1,118 @@
+$feedback-color: #8d91c7;
+$feedbackResult-background: rgba(#e9ba3b, .7);
+
+.feedback {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    display: block;
+    padding: 5%;
+    background: $feedbackResult-background;
+    border-radius: 3px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:before {
+    content: 'Форма отправлена успешно!';
+  }
+
+  &:after {
+    content: 'Произошла ошибка, попробуйте еще раз.';
+  }
+
+  &-is-send {
+
+    &:before {
+      opacity: 1;
+    }
+
+  }
+
+  &-is-failed {
+
+    &:after {
+      opacity: 1;
+    }
+
+  }
+
+  @media (max-width: 720px) {
+    width: 100%;
+
+    &:before,
+    &:after {
+      position: fixed;
+      top: 0;
+      padding: 10% 5%;
+    }
+  }
+
+}
+
+$feedbackItem-width: 350px;
+$feedbackItem-height: 40px;
+$feedbackComment-height: 70px;
+
+%feedbackItem {
+  width: $feedbackItem-width;
+  border: 1px solid $feedback-color;
+  margin: 5% 0 0;
+  padding: 5%;
+  box-sizing: border-box;
+  border-radius: 3px;
+
+  @media (max-width: 720px) {
+    width: 100%;
+    padding: 10px;
+  }
+
+}
+
+.feedbackItem {
+  @extend %feedbackItem;
+  height: $feedbackItem-height;
+}
+
+.feedbackLabel {
+  margin: (-$feedbackItem-height - 25px) 0 ($feedbackItem-height + 25px);
+}
+
+.feedbackComment {
+  @extend %feedbackItem;
+  height: $feedbackComment-height;
+  resize: none;
+}
+
+.feedbackCommentLabel {
+  margin: (-$feedbackComment-height - 25px) 0 ($feedbackComment-height + 25px);
+}
+
+$feedbackButton-height: 50px;
+$feedbackButton-background: #6e75a8;
+$feedbackButton-color: #fff;
+
+.feedbackButton {
+  height: $feedbackButton-height;
+  background: $feedbackButton-background;
+  color: $feedbackButton-color;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: .7;
+  transition: .2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+}

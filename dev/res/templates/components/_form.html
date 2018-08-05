@@ -1,0 +1,13 @@
+<form class="feedback" action="/feedback">
+  <input class="feedbackItem" id="name" required >
+  <label class="feedbackLabel" for="name">Имя</label>
+  <input class="feedbackItem" id="secondName">
+  <label class="feedbackLabel" for="secondName">Фамилия</label>
+  <input class="feedbackItem" id="email" type="email" required >
+  <label class="feedbackLabel" for="email">Email</label>
+  <input class="feedbackItem" id="phone" type="tel" pattern="+[0-9]{11}" placeholder="+79999999999" required >
+  <label class="feedbackLabel" for="phone">Номер телефона</label>
+  <textarea class="feedbackComment" id="comment"></textarea>
+  <label class="feedbackCommentLabel" for="comment">Комментарий</label>
+  <input class="feedbackButton"  type="submit" value="Отправить">
+</form>
